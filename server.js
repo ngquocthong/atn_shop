@@ -1,4 +1,4 @@
-
+const db = require('./models/db');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -7,10 +7,10 @@ const productController = require('./controller/productController');
 const employeeController = require('./controller/employeeController');
 
 const app = express();
-const db = require('./models/db');
+
 app.use(express.static(__dirname + '/public'));
 
-// app.use('/css', express.static(__dirname + 'public/css'));
+
 
 app.use(bodyParser.urlencoded({
     extended: true
