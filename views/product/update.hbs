@@ -1,0 +1,58 @@
+<section class="position-relative py-1 py-xl-4">
+    <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+                <div class="card mb-5">
+                    <div class="card-body p-sm-5">
+                        <h2 class="text-center mb-4">Product</h2>
+                        <form action="/product" method="POST" autocomplete="off">
+                            <div class="mb-3">
+                                <input class="form-control" type="hidden" name="_id" value="{{employee._id}}"
+                                    placeholder="Product ID">
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="productName"
+                                    value="{{employee.productName}}" placeholder="Product Name">
+                            </div>
+
+                            <div class="text-danger">
+                                {{employee.productNameError}}
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="price" value="{{employee.price}}"
+                                    placeholder="Price">
+                            </div>
+                            <input class="form-control" type="file" name="img" value="" style="margin-bottom: 11px;">
+                            {{!--
+                            <div class="form-check"><input class="form-check-input " name="shop" value="shop1"
+                                    type="checkbox" id="formCheck-1"><label class="form-check-label"
+                                    for="formCheck-1">Shop 1</label>
+                            </div>
+                            <div class="form-check"><input class="form-check-input " name="shop" value="shop2"
+                                    type="checkbox" id="formCheck-2"><label class="form-check-label"
+                                    for="formCheck-2">Shop 2</label>
+                            </div>
+                            <div class="form-check"><input class="form-check-input" name="shop" value="shop3"
+                                    type="checkbox" id="formCheck-3"><label class="form-check-label"
+                                    for="formCheck-3">Shop 3</label>
+                            </div> --}}
+
+                            <select class="dropdown btn btn-primary dropdown-toggle mt-2 mb-2" name="category">
+                                
+                                <option value="Cate1">Toy Category 1</option>
+                                <option  value="Cate2">Toy Category 2</option>
+                                <option value="Cate3">Toy Category 3</option>
+                            </select>
+
+                            <div class="mb-3"><textarea class="form-control" name="des"  id="message-2"
+                                     rows="6" placeholder="Description">{{employee.des}}</textarea></div>
+                            <div><button class="btn btn-primary d-block w-100" type="submit">Add&nbsp;</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</form>

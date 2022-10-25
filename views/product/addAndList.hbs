@@ -1,0 +1,108 @@
+<section class="position-relative py-1 py-xl-4">
+    <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+                <div class="card mb-5">
+                    <div class="card-body p-sm-5">
+                        <h2 class="text-center mb-4">Product</h2>
+                        <form action="/product" method="POST" autocomplete="off" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <input class="form-control" type="hidden" name="_id" value="{{product._id}}"
+                                    placeholder="Product ID">
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="productName"
+                                    value="{{product.productName}}" placeholder="Product Name">
+                            </div>
+                            <div class="text-danger">
+                                {{product.productName.message}}
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="price" value="{{product.price}}"
+                                    placeholder="Price">
+                            </div>
+                            <input class="form-control" type="file" name="image" value="" style="margin-bottom: 11px;">
+                            {{!--
+                            <div class="form-check"><input class="form-check-input " name="shop" value="shop1"
+                                    type="checkbox" id="formCheck-1"><label class="form-check-label"
+                                    for="formCheck-1">Shop 1</label>
+                            </div>
+                            <div class="form-check"><input class="form-check-input " name="shop" value="shop2"
+                                    type="checkbox" id="formCheck-2"><label class="form-check-label"
+                                    for="formCheck-2">Shop 2</label>
+                            </div>
+                            <div class="form-check"><input class="form-check-input" name="shop" value="shop3"
+                                    type="checkbox" id="formCheck-3"><label class="form-check-label"
+                                    for="formCheck-3">Shop 3</label>
+                            </div> --}}
+
+                            <select class="dropdown btn btn-primary dropdown-toggle mt-2 mb-2" name="category">
+                                <option value="Cate1">Toy Category 1</option>
+                                <option value="Cate2">Toy Category 2</option>
+                                <option value="Cate3">Toy Category 3</option>
+                            </select>
+
+                            <div class="mb-3"><textarea class="form-control" name="des" id="message-2"
+                                    value="{{product.des}}" rows="6" placeholder="Description"></textarea></div>
+                            <div><button class="btn btn-primary d-block w-100" type="submit">Add&nbsp;</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card p-sm-4 mb-5">
+                    <h3 class="text-center mb-4">
+                        Product List
+                    </h3>
+                    <div class="d-flex  justify-content-center mb-3">
+                            <input class = "form-control mb-0" style="width:330px;" type="text" id="searchWord" onkeyup="myFunction()" placeholder="Search for names..">
+                            <a href="/product" type="button" class="m-1 btn btn-primary ">Clear</a>       
+                    </div>
+                    
+                    <div style="height: 600px;overflow: scroll;">
+                        <table class="table table-striped " id = "productTable">
+                            <thead>
+                                <tr>
+                                    <th>Toy Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Description</th>
+                                    <th>Image</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each list}}
+                                <tr>
+                                    <td>{{this.productName}}</td>
+                                    <td>{{this.category}}</td>
+                                    <td>{{this.price}}</td>
+                                    <td>{{this.des}}</td>
+                                    <td>
+                                        <img src="img/{{this.image}}" height="50px" widht="50px">
+                                    </td>
+                                    <td>
+                                        <a href="/product/{{this._id}}">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <a href="/product/delete/{{this._id}}"
+                                            onclick="return confirm('Are you sure to delete this record?');">
+                                            <i class=" fa fa-trash fa-lg" aria-hidden="true">
+                                            </i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</form>
