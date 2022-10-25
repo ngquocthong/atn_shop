@@ -7,7 +7,7 @@ const productController = require('./controller/productController');
 const employeeController = require('./controller/employeeController');
 
 const app = express();
-require('./models/db');
+const db = require('./models/db');
 app.use(express.static(__dirname + '/public'));
 
 // app.use('/css', express.static(__dirname + 'public/css'));
@@ -34,10 +34,12 @@ app.get('/', function (req, res) {
 })
 app.set('view engine', 'hbs');
 
+app.use('/product', productController);
+app.use('/employee', employeeController);
+
 const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log("Server is listening on Port 3000");
 })
 
-app.use('/product', productController);
-app.use('/employee', employeeController);
+

@@ -35,7 +35,7 @@ router.post("/", upload.single("image") , (req, res) => {
     //     return next(error)
     //   }
     //  res.send(file)
-    if (req.bod y._id == "") {
+    if (req.body._id == "") {
        insertRecord(req, res);
     }
     else {
