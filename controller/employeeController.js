@@ -3,10 +3,11 @@ const mongoose = require('mongoose');
 const Employee = mongoose.model('Employee');
 const router = express.Router();
 
-router.get("/show", (req, res) => {
-    res.render("employee/addOrEdit", {
-        viewTitle: "Insert Employee"
-    })
+router.get("/", (req, res) => {
+    res.send("BA")
+    // res.render("employee/addOrEdit", {
+    //     viewTitle: "Insert Employee"
+    // })
 })
 
 router.post("/", (req, res) => {
