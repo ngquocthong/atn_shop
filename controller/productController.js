@@ -27,14 +27,7 @@ router.get('/', (req, res) => {
     })
 })
 router.post("/", upload.single("image") , (req, res) => {
-    // check upload picture
-    //  const file = req.file
-    //  if (!file) {
-    //     const error = new Error('Please upload a file')
-    //     error.httpStatusCode = 400
-    //     return next(error)
-    //   }
-    //  res.send(file)
+
     if (req.body._id == "") {
        insertRecord(req, res);
     }
