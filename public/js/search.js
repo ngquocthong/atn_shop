@@ -1,5 +1,6 @@
 function myFunction() {
     // Declare variables
+
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("searchWord");
     filter = input.value.toUpperCase();

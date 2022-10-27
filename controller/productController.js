@@ -90,7 +90,7 @@ function updateRecord(req, res) {
 
 
 router.get('/:id', (req, res) => {
-    Employee.findById(req.params.id, (err, doc) => {
+    Product.findById(req.params.id, (err, doc) => {
         if (!err) {
             res.render("product/update", {
                 viewTitle: "Update Employee",
@@ -101,7 +101,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.get('/delete/:id', (req, res) => {
-    Employee.findByIdAndRemove(req.params.id, (err, doc) => {
+    Product.findByIdAndRemove(req.params.id, (err, doc) => {
         if (!err) {
             res.redirect('/product');
         }

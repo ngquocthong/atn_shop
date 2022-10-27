@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const expressHandlebars = require('express-handlebars');
 const productController = require('./controller/productController');
 const employeeController = require('./controller/employeeController');
+const loginController = require('./controller/loginController');
 
 const app = express();
 
@@ -29,10 +30,13 @@ app.engine('hbs', expressHandlebars({
     },
 }))
 
+
 app.set('view engine', 'hbs');
+
 
 app.use('/product', productController);
 app.use('/employee', employeeController);
+app.use('/', loginController);
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {

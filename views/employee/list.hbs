@@ -1,38 +1,74 @@
-<h3>
-    <a href="/employee" class="btn btn-danger">
-        <i class="fa fa-plus"> </i> Create New
-    </a>
-    Employee List
-</h3>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Full Name</th>
-            <th>Email</th>
-            <th>Mobile</th>
-            <th>City</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each list}}
-        <tr>
-            <td>{{this.fullName}}</td>
-            <td>{{this.email}}</td>
-            <td>{{this.mobile}}</td>
-            <td>{{this.city}}</td>
-            <td>
-                <a href="/employee/{{this._id}}">
-                    <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
-                </a>
-                <a href="/employee/delete/{{this._id}}"
-                    onclick="return confirm('Are you sure to delete this record?');">
-                    <i class="fa fa-trash fa-lg" aria-hidden="true">
+<section class="position-relative py-1 py-xl-4">
+    <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8 ">
+                <h3>
+                    <a href="/employee" class="btn btn-danger">
+                        <i class="fa fa-plus"> </i> Create New
+                    </a>
+                    Employee List
+                </h3>
 
-                    </i>
-                </a>
-            </td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
+                 <div class="d-flex  justify-content-center mb-3">
+                            <input class = "form-control mb-0" style="width:330px;" type="text" id="searchbar" onkeyup="mysearch()" placeholder="Search for names..">
+                            <a href="/employee/list" type="button" class="m-1 btn btn-warning ">Clear</a>       
+                    </div>
+                <table   class="table table-striped" id = "employTable">
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Mobile</th>
+                            <th>City</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each list}}
+                        <tr>
+                            <td>{{this.fullName}}</td>
+                            <td>{{this.email}}</td>
+                            <td>{{this.mobile}}</td>
+                            <td>{{this.city}}</td>
+                            <td>
+                                <a href="/employee/{{this._id}}">
+                                    <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                                </a>
+                                <a href="/employee/delete/{{this._id}}"
+                                    onclick="return confirm('Are you sure to delete this record?');">
+                                    <i class="fa fa-trash fa-lg" aria-hidden="true">
+                                    </i>
+                                </a>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function mysearch() {
+    // Declare variables
+    console.log("E")
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchbar");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("employTable");
+    tr = table.getElementsByTagName("tr");
+  
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+</script>
