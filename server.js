@@ -32,10 +32,9 @@ app.engine('hbs', expressHandlebars({
 
 
 app.set('view engine', 'hbs');
-
-
-app.use('/product', productController);
 app.use('/employee', employeeController);
+app.use('/product', productController);
+
 app.use('/', loginController);
 
 const port = process.env.PORT || 3000
