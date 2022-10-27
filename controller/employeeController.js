@@ -4,10 +4,10 @@ const Employee = mongoose.model('Employee');
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    res.send("BA")
-    // res.render("employee/addOrEdit", {
-    //     viewTitle: "Insert Employee"
-    // })
+
+    res.render("employee/addorEdit", {
+        viewTitle: "Insert Employee"
+    })
 })
 
 router.post("/", (req, res) => {
