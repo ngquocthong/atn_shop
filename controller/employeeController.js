@@ -51,7 +51,7 @@ function updateRecord(req, res) {
         else {
             if (err.name == "ValidationError") {
                 handleValidationError(err, req.body);
-                res.render("employee/addOrEdit", {
+                res.render("employee/addorEdit", {
                     viewTitle: 'Update Employee',
                     employee: req.body
                 });
@@ -76,7 +76,7 @@ router.get('/list', (req, res) => {
 router.get('/:id', (req, res) => {
     Employee.findById(req.params.id, (err, doc) => {
         if (!err) {
-            res.render("employee/addOrEdit", {
+            res.render("employee/addorEdit", {
                 viewTitle: "Update Employee",
                 employee: doc
             })
