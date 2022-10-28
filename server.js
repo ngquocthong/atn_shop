@@ -35,7 +35,7 @@ app.set('view engine', 'hbs');
 app.use('/employee', employeeController);
 app.use('/product', productController);
 
-app.use('/', loginController);
+app.use('/', productController);
 
 const port = process.env.PORT || 3000
 app.listen(port, () => {
