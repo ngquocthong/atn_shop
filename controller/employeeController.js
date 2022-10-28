@@ -33,7 +33,7 @@ function insertRecord(req, res) {
         else {
             if (err.name == "ValidationError") {
                 handleValidationError(err, req.body);
-                res.render("employee/addOrEdit", {
+                res.render("employee/addorEdit", {
                     viewTitle: "Insert Employee",
                     employee: req.body
                 })
